@@ -1,0 +1,79 @@
+package Random;
+
+public class Random {
+    public static void main(String[] args) {
+        int max = 100;
+        int min = 1;
+        int chances=3;
+        int score=0;
+        
+        int RandomNumber = (int) (Math.random()*(max-min+1))+min;
+        
+        System.out.println("WElCOME TO RANDOM GUESS GAME:");
+        System.out.println("Guess a number between "+min+ " to " + max);
+   	    System.out.println("you have total 3 chances");
+   	    
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+			int attempts=0;
+			while(attempts<chances) {
+				System.out.println("Enter your guess: ");
+				int user=sc.nextInt();
+				
+				if(user>100) {
+					System.out.println("your number is out of range!");
+					continue;
+				}
+				attempts++;
+				
+				
+				
+				if(user==RandomNumber) {
+					System.out.println("Congrats! Your guess was correct in"+attempts+"attempts");
+					score=score+100;
+					System.out.println("score: "+score);
+					break;
+					
+					
+				}
+				else if(user>RandomNumber && user<=100) {
+					System.out.println("Too High! Try again");
+					System.out.println("Attempt "+attempts +" completed");
+					
+				}
+				else if(user<RandomNumber){
+					System.out.println("Too Low! Try again");
+					System.out.println("Attempt "+attempts +" completed");
+				}
+				else {
+					System.out.println("");
+				}
+				
+				if(attempts==chances) {
+					System.out.println("Correct Guess is: "+RandomNumber);
+					System.out.println("chances are over! Better luck for next time");
+					System.out.println(" ");
+				}
+			}
+			System.out.println("Your Score is: "+score);
+            System.out.println("Do you want to play again?");
+            int yes=1;
+            int no=0;
+            System.out.println("Enter "+yes+" for play again");
+            System.out.println("Enter "+no+" for quit the game");
+           
+           
+            int a= sc.nextInt();
+           
+            if(a==yes) {
+            	System.out.println("Welcome to the Round-2");
+            }
+            else if(a==no) {
+            	System.out.println("Thank you for playing!");
+            }
+            
+           
+            
+        sc.close();
+        
+    } 	
+}
